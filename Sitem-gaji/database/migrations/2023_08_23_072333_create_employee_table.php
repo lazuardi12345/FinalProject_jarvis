@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('no_hp');
             $table->string('gaji_pokok');
+            // $table->string('barcode');
             $table->unsignedBigInteger('id_users');
             $table->unsignedBigInteger('id_divisi');
             $table->timestamps();
