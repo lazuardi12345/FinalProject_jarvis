@@ -20,25 +20,25 @@ class DivisiController extends Controller
         return view('contents.divisions.divisi', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('contents.divisions.create', [
+            "title" => "Divisions Create",
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "nama_divisi" => 'required|max:255|min:5',
+        ]);
+
+
+        Divisi::create($validatedData);
+
+        return redirect('/divisions')->with('success', 'Berhasil menambah data.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Divisi $divisi)
     {
         //
