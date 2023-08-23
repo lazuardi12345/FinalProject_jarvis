@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DivisiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('contents.dashboard');
 });
+
+Route::get('/employee', [EmployeeController::class, 'index']);
+
+Route::get('/divisions', [DivisiController::class, 'index']);
