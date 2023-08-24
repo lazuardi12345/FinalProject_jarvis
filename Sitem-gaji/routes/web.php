@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\PenggajianController;
+use App\Http\Controllers\TujanganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +32,10 @@ Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('e
 Route::get('/divisions', [DivisiController::class, 'index']);
 Route::get('/divisions/create', [DivisiController::class, 'create']);
 Route::post('/divisions', [DivisiController::class, 'store']);
+
+Route::get('/penggajians', [PenggajianController::class, 'index']);
+
+
+
+Route::get('/tunjangans', [TujanganController::class, 'index']);
+

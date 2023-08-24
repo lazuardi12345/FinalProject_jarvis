@@ -67,14 +67,14 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="/penggajians" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Penggajian</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="tunjangans" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Tunjangan</span>
                             </a>
