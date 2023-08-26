@@ -4,8 +4,8 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-
-                <a href="/" class="btn icon icon-left btn-primary mb-3 mt-2"><svg
+                <h3>{{ $title }}</h3>
+                <a href="/tunjangans/create" class="btn icon icon-left btn-primary mb-3 mt-2"><svg
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-edit">
@@ -46,7 +46,20 @@
                         @php
                             $no = 1;
                         @endphp
+                         @foreach ($tunjangans as $tunjangan)
+                         <tr>
+                             <td>{{ $no }}</td>
+                             <td>{{ $tunjangan->nama_tunjangan }}</td>
+                             <td>{{ $tunjangan->nominal }}</td>
+                             <td>
+                                 <span class="badge bg-success">Active</span>
+                             </td>
+                         </tr>
 
+                         @php
+                             $no++;
+                         @endphp
+                     @endforeach
                     </tbody>
                 </table>
             </div>
