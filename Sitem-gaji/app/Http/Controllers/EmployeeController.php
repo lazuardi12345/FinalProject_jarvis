@@ -44,6 +44,15 @@ class EmployeeController extends Controller
             "id_divisis" => 'required',
         ]);
 
+        if($request->hasFile('photo'))
+        {
+            $destination_path = 'public/images/employees';
+            $photo = $request->file('photo');
+            $photo_name = $photo->getClientOriginalName();
+            $path = $request->file('photo')->storeAs($destination_path, $photo_name);
+
+            $validatedData['photo'] = $photo_name;
+        }
 
         Employee::create($validatedData);
 
@@ -84,6 +93,15 @@ class EmployeeController extends Controller
             "id_users" => 'required',
             "id_divisis" => 'required',
         ]);
+
+        if ($request->hasFile('photo')) {
+            $destination_path = 'public/images/employees';
+            $photo = $request->file('photo');
+            $photo_name = $photo->getClientOriginalName();
+            $path = $request->file('photo')->storeAs($destination_path, $photo_name);
+
+            $validatedData['photo'] = $photo_name;
+        }
 
         $employee->update($validatedData);
         return redirect('/employee')->with('success', 'Berhasil mengubah data.');

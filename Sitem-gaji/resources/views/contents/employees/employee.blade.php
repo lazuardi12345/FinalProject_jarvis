@@ -61,7 +61,11 @@
                                 <tr>
                                     <td>{{ $no }}</td>
                                     <td>{{ $value->user->name }}</td>
-                                    <td>{{ $value->photo }}</td>
+                                    <td>
+                                        <img height="100px" src="{{ asset('/storage/images/employees/' . $value->photo) }}"
+                                            alt="Foto Karyawan">
+                                    </td>
+
                                     <td>{{ $value->alamat }}</td>
                                     <td>{{ $value->no_hp }}</td>
                                     <td>Rp {{ number_format($value->gaji_pokok, 2, ',', '.') }}</td>
