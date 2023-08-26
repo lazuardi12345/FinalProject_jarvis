@@ -23,26 +23,21 @@
                 <div class="card-header">Create Data</div>
                 <div class="card-body">
 
-                    <form class="settings-form" method="POST" action="/divisions" enctype="multipart/form-data">
+                    <form class="settings-form" method="POST" action="/divisions/{{ $divisions->id }}"
+                        enctype="multipart/form-data">
                         @csrf
+                        @method('put')
 
                         <div class="form-group">
                             <label for="nama_divisi">Nama Divisi</label>
-                            <input type="text" class="form-control @error('nama_divisi') is-invalid @enderror" name="nama_divisi" id="nama_divisi"
-                                placeholder="Masukan nama divisi">
+                            <input type="text" class="form-control" name="nama_divisi" id="nama_divisi"
+                                placeholder="Masukan nama divisi" value="{{ $divisions->nama_divisi }}">
                         </div>
-                        @error('nama_divisi')
-                            <div class="invalid-feedback text-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
 
                         <div class="row">
                             <div class="col-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary me-1 mb-1">Create</button>
-                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>

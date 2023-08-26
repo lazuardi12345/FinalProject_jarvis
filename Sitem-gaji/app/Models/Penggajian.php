@@ -11,7 +11,7 @@ class Penggajian extends Model
     protected $fillable = [
         "potongan",
         "id_employess",
-        "id_tunjangan",
-        "id_divisi",
+        "id_tunjangans",
+        "id_divisis",
     ];
 }

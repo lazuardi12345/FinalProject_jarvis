@@ -32,6 +32,9 @@ Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('e
 Route::get('/divisions', [DivisiController::class, 'index']);
 Route::get('/divisions/create', [DivisiController::class, 'create']);
 Route::post('/divisions', [DivisiController::class, 'store']);
+Route::get('/divisions/{id}/edit', [DivisiController::class, 'edit']);
+Route::put('/divisions/{id}', [DivisiController::class, 'update']);
+Route::delete('/divisions/{id}', [DivisiController::class, 'destroy'])->name('divisi.destroy');
 
 Route::get('/penggajians', [PenggajianController::class, 'index']);
 Route::get('/penggajians/create', [PenggajianController::class, 'create']);
@@ -39,5 +42,5 @@ Route::post('/penggajians', [PenggajianController::class, 'store']);
 
 Route::get('/tunjangans', [TujanganController::class, 'index']);
 Route::get('/tunjangans/create', [TujanganController::class, 'create']);
-Route::post('/tunjangans', [DivisiController::class, 'store']);
+Route::post('/tunjangans', [TujanganController::class, 'store']);
 

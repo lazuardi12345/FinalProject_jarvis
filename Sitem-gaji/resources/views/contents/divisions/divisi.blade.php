@@ -28,8 +28,10 @@
 
         <div class="col-12">
             @if (session()->has('success'))
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success alert-dismissible show fade" role="alert">
                     {{ session('success') }}
+
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
         </div>
@@ -56,7 +58,25 @@
                                     <td>{{ $no }}</td>
                                     <td>{{ $divisi->nama_divisi }}</td>
                                     <td>
-                                        <span class="badge bg-success">Active</span>
+                                        <a href="/divisions/{{ $divisi->id }}/edit"><span
+                                                class="badge bg-warning">Edit</span></a>
+
+                                        <!-- Konfirmasi tindakan Hapus -->
+                                        <form action="{{ route('divisi.destroy', $divisi->id) }}" method="POST"
+                                            class="d-inline" id="delete-form-{{ $divisi->id }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn badge bg-danger"
+                                                onclick="showDeleteConfirmation({{ $divisi->id }})">Hapus</button>
+                                        </form>
+
+                                        <script>
+                                            function showDeleteConfirmation(id) {
+                                                if (confirm('Apakah Anda yakin ingin menghapus divisi ini?')) {
+                                                    document.getElementById('delete-form-' + id).submit();
+                                                }
+                                            }
+                                        </script>
                                     </td>
                                 </tr>
 

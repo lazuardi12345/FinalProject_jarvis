@@ -30,7 +30,7 @@ class DivisiController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "nama_divisi" => 'required|max:255|min:5',
+            "nama_divisi" => 'required|max:255|min:3',
         ]);
 
 
@@ -44,27 +44,36 @@ class DivisiController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Divisi $divisi)
+    public function edit($id)
     {
-        //
+        $data = [
+            "title" => "Edit Employee",
+            "divisions" => Divisi::find($id),
+
+        ];
+
+        return view('contents.divisions.edit', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Divisi $divisi)
+    public function update(Request $request, string $id)
     {
-        //
+        $divisions = Divisi::find($id);
+
+        $validatedData = $request->validate([
+            "nama_divisi" => 'required|max:255|min:3',
+        ]);
+
+        $divisions->update($validatedData);
+        return redirect('/divisions')->with('success', 'Berhasil mengubah data.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Divisi $divisi)
+
+    public function destroy($id)
     {
-        //
+        $divisions = Divisi::findOrFail($id);
+
+        $divisions->delete();
+
+        return redirect('/divisions')->with('success', 'Divisi berhasil dihapus.');
     }
 }
