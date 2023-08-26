@@ -34,8 +34,8 @@ Route::get('/divisions/create', [DivisiController::class, 'create']);
 Route::post('/divisions', [DivisiController::class, 'store']);
 
 Route::get('/penggajians', [PenggajianController::class, 'index']);
-
-
+Route::get('/penggajians/create', [PenggajianController::class, 'create']);
+Route::post('/penggajians', [PenggajianController::class, 'store']);
 
 Route::get('/tunjangans', [TujanganController::class, 'index']);
 Route::get('/tunjangans/create', [TujanganController::class, 'create']);

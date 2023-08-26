@@ -5,8 +5,8 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-
-                <a href="/" class="btn icon icon-left btn-primary mb-3 mt-2"><svg
+                <h3>{{ $title }}</h3>
+                <a href="/penggajians/create" class="btn icon icon-left btn-primary mb-3 mt-2"><svg
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-edit">
@@ -49,7 +49,21 @@
                         @php
                             $no = 1;
                         @endphp
-
+                         @foreach ($penggajians as $penggajian)
+                         <tr>
+                             <td>{{ $no }}</td>
+                             <td>{{ $tunjangan->potongan }}</td>
+                             <td>{{ $tunjangan->id_employees }}</td>
+                             <td>{{ $tunjangan->id_tunjangans }}</td>
+                             <td>{{ $tunjangan->id_divisis }}</td>
+                             <td>
+                                 <span class="badge bg-success">Active</span>
+                             </td>
+                         </tr>
+                         @php
+                         $no++;
+                     @endphp
+                 @endforeach
                     </tbody>
                 </table>
             </div>
