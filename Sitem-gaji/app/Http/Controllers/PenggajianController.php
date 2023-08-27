@@ -35,4 +35,38 @@ class PenggajianController extends Controller
 
         return redirect('/penggajians')->with('success', 'Berhasil menambah data.');
     }
+    
+    public function edit($id)
+    {
+        $data = [
+            "title" => "Edit Employee",
+            "penggajians" => penggajian::find($id),
+
+        ];
+
+        return view('contents.penggajians.edit', $data);
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $penggajians = penggajian::find($id);
+
+        $validatedData = $request->validate([
+            "id_employees" => 'required|max:255|min:3',
+            "id_divisis" => 'required|max:255|min:3',
+            "gaji_pokok" => 'nullable|numeric|min:0'
+        ]);
+
+        $penggajians->update($validatedData);
+        return redirect('/penggajians')->with('success', 'Berhasil mengubah data.');
+    }
+
+    public function destroy($id)
+    {
+        $penggajians = penggajian::findOrFail($id);
+
+        $penggajians->delete();
+
+        return redirect('/penggajians')->with('success', 'Gaji berhasil dihapus.');
+    }
 }

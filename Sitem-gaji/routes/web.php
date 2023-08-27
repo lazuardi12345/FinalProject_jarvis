@@ -39,8 +39,14 @@ Route::delete('/divisions/{id}', [DivisiController::class, 'destroy'])->name('di
 Route::get('/penggajians', [PenggajianController::class, 'index']);
 Route::get('/penggajians/create', [PenggajianController::class, 'create']);
 Route::post('/penggajians', [PenggajianController::class, 'store']);
+Route::get('/penggajians/{id}/edit', [PenggajianController::class, 'edit']);
+Route::put('/penggajians/{id}', [PenggajianController::class, 'update']);
+
+
 
 Route::get('/tunjangans', [TujanganController::class, 'index']);
 Route::get('/tunjangans/create', [TujanganController::class, 'create']);
 Route::post('/tunjangans', [TujanganController::class, 'store']);
-
+Route::get('/tunjangans/{id}/edit', [TujanganController::class, 'edit']);
+Route::put('/tunjangans/{id}', [TujanganController::class, 'update']);
+Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name('tunjangan.destroy');
