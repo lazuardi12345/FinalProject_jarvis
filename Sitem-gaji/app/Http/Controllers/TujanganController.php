@@ -39,7 +39,7 @@ class TujanganController extends Controller
     {
         $data = [
             "title" => "Edit Employee",
-            "divisions" => tunjangan::find($id),
+            "tunjangans" => tunjangan::find($id),
 
         ];
 

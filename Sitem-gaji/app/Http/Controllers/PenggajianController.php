@@ -25,8 +25,10 @@ class PenggajianController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "id_employees" => 'required|max:255|min:5',
-            "id_divisis" => 'required|max:255|min:5',
+            "Potongan" => 'required|max:255|min:3',
+            "id_employees" => 'required|max:255|min:3',
+            "id_tunjangan" => 'required|max:255|min:3',
+            "id_divisis" => 'required|max:255|min:3',
             "gaji_pokok" => 'nullable|numeric|min:0'
         ]);
 
@@ -52,7 +54,9 @@ class PenggajianController extends Controller
         $penggajians = penggajian::find($id);
 
         $validatedData = $request->validate([
+            "Potongan" => 'required|max:255|min:3',
             "id_employees" => 'required|max:255|min:3',
+            "id_tunjangan" => 'required|max:255|min:3',
             "id_divisis" => 'required|max:255|min:3',
             "gaji_pokok" => 'nullable|numeric|min:0'
         ]);

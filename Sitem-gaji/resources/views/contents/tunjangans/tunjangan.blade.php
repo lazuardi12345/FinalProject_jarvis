@@ -53,7 +53,28 @@
                              <td>{{ $tunjangan->nominal }}</td>
                              <td>
                                  <span class="badge bg-success">Active</span>
+                                 <a href="/tunjangans/{{ $tunjangan->id }}/edit"><span
+                                    class="badge bg-warning">Edit</span></a>
+
+                                     <!-- Konfirmasi tindakan Hapus -->
+                                     <form action="{{ route('tunjangan.destroy', $tunjangan->id) }}" method="POST"
+                                        class="d-inline" id="delete-form-{{ $tunjangan->id }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn badge bg-danger"
+                                            onclick="showDeleteConfirmation({{ $tunjangan->id }})">Hapus</button>
+                                    </form>
+
+                                    <script>
+                                        function showDeleteConfirmation(id) {
+                                            if (confirm('Apakah Anda yakin ingin menghapus tunjangan ini?')) {
+                                                document.getElementById('delete-form-' + id).submit();
+                                            }
+                                        }
+                                    </script>
+
                              </td>
+                             
                          </tr>
 
                          @php

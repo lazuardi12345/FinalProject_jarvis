@@ -43,6 +43,7 @@
                             <th>Name</th>
                             <th>Tunjangan</th>
                             <th>Divisi</th>
+                            <th>Gaji</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +57,7 @@
                              <td>{{ $tunjangan->id_employees }}</td>
                              <td>{{ $tunjangan->id_tunjangans }}</td>
                              <td>{{ $tunjangan->id_divisis }}</td>
+                             <td>{{ $tunjangan->gaji_pokok }}</td>
                              <td>
                                  <span class="badge bg-success">Active</span>
                              </td>

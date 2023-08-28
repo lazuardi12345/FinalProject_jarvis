@@ -29,19 +29,30 @@
                         @method('put')
 
                         <div class="form-group">
-                            <label for="nama_divisi">Nama Employee</label>
+                            <label for="potongan">Potongan</label>
+                            <input type="text" class="form-control" name="potongan" id="potongan"
+                                placeholder="Masukan Potongan" value="{{ $penggajians->potongan }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_employee">Nama Employee</label>
+                            <input type="text" class="form-control" name="id_employees" id="id_employees"
+                                placeholder="Masukan nama employess" value="{{ $penggajians->id_employees }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_tunjangan">Tunjangan</label>
                             <input type="text" class="form-control" name="id_employees" id="id_employees"
                                 placeholder="Masukan nama employess" value="{{ $penggajians->id_employees }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="nama_divisi">Nama Divisi</label>
+                            <label for="id_divisi">Nama Divisi</label>
                             <input type="text" class="form-control" name="id_divisis" id="id_divisis"
                                 placeholder="Masukan nama Divisi" value="{{ $penggajians->id_divisis }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="tunjangan">gaji</label>
+                            <label for="gaji_pokok">gaji</label>
                             <div class="input-group">
                                 <span class="input-group-text">Rp</span>
                                 <input type="number" class="form-control @error('gaji_pokok') is-invalid @enderror"

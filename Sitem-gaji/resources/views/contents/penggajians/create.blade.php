@@ -27,8 +27,17 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="tunjangan">Nama Employee</label>
+                            <label for="potongan">Potongan</label>
+                            <input type="text" class="form-control" name="potongan" id="tunjangan" placeholder="Masukan Potongan">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_employeen">Nama Employee</label>
                             <input type="text" class="form-control" name="id_employees" id="employee" placeholder="Masukan nama employee">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_tunjangan">tunjangan</label>
+                            <input type="text" class="form-control" name="id_tunjangan" id="tunjangan" placeholder="Masukan nama tunjangan">
                         </div>
                         
                         <div class="form-group">
