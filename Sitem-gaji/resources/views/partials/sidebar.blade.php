@@ -66,7 +66,7 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item {{ Request::is('penggajians') ? 'active' : ' ' }}">
+                        <li a href="https://github.com/zuramai/mazer#donation" class="sidebar-item {{ Request::is('penggajians') ? 'active' : ' ' }}">
                             <a href="/penggajians" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Penggajian</span>
