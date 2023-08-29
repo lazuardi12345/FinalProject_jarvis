@@ -38,8 +38,10 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama tunjangan</th>
                             <th>Nominal</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,7 +76,7 @@
                                     </script>
 
                              </td>
-                             
+
                          </tr>
 
                          @php

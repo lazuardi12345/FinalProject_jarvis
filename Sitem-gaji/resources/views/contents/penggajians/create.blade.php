@@ -10,8 +10,8 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/employee">Employee</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">CreateDataEmployee</li>
+                            <li class="breadcrumb-item"><a href="/employee">Penggajian</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">CreateDataPenggajian</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,39 +23,31 @@
                 <div class="card-header">Create Data</div>
                 <div class="card-body">
 
-                    <form class="settings-form" method="POST" action="/tunjangans" enctype="multipart/form-data">
+                    <form class="settings-form" method="POST" action="/penggajians" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
-                            <label for="potongan">Potongan</label>
-                            <input type="text" class="form-control" name="potongan" id="tunjangan" placeholder="Masukan Potongan">
+                            <label for="id_employee" class="col-4 col-form-label">Nama Employee</label>
+                            <select id="id_employee" name="id_employees" class="form-select">
+                                @foreach ($employee as $employee)
+                                    <option value="{{ $employee->id }}">{{ $employee->user->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="id_employeen">Nama Employee</label>
-                            <input type="text" class="form-control" name="id_employees" id="employee" placeholder="Masukan nama employee">
+                            <label for="potongan">Potongan</label>
+                            <input type="text" class="form-control" name="potongan" id="tunjangan"
+                                placeholder="Masukan Potongan">
                         </div>
+
                         <div class="form-group">
-                            <label for="id_tunjangan">tunjangan</label>
-                            <input type="text" class="form-control" name="id_tunjangan" id="tunjangan" placeholder="Masukan nama tunjangan">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="tunjangan">Nama Divisi</label>
-                            <input type="text" class="form-control" name="id_divisis" id="divisi" placeholder="Masukan nama divisi">
-                        </div>
-                        <div class="form-group">
-                            <label for="tunjangan">gaji</label>
-                            <div class="input-group">
-                                <span class="input-group-text">Rp</span>
-                                <input type="number" class="form-control @error('gaji_pokok') is-invalid @enderror"
-                                    name="gaji_pokok" aria-label="" placeholder="5000.000.00">
-                                @error('gaji_pokok')
-                                    <div class="invalid-feedback text-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                            <label for="id_tunjangan" class="col-4 col-form-label">Tunjangan</label>
+                            <select id="id_tunjangan" name="id_tunjangans" class="form-select">
+                                @foreach ($tunjangan as $tunjangan)
+                                    <option value="{{ $tunjangan->id }}">{{ $tunjangan->nama_tunjangan }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="row">

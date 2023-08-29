@@ -16,15 +16,12 @@ return new class extends Migration
             $table->string('potongan');
             $table->unsignedBigInteger('id_employees');
             $table->unsignedBigInteger('id_tunjangans');
-            $table->unsignedBigInteger('id_divisis');
-            $table->string('gaji_pokok');
             $table->timestamps();
 
             $table->foreign('id_employees')->references('id')->on('employees')->onDelete('cascade');
 
             $table->foreign('id_tunjangans')->references('id')->on('tunjangans')->onDelete('cascade');
 
-            $table->foreign('id_divisis')->references('id')->on('divisis')->onDelete('cascade');
         });
     }
 

@@ -10,8 +10,22 @@ class Penggajian extends Model
     use HasFactory;
     protected $fillable = [
         "potongan",
-        "id_employess",
+        "id_employees",
         "id_tunjangans",
-        "id_divisis",
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class, 'id_employees');
+    }
+
+    // public function divisi()
+    // {
+    //     return $this->belongsTo(Divisi::class, 'id_divisis');
+    // }
+
+    public function tunjangan()
+    {
+        return $this->belongsTo(Tunjangan::class, 'id_tunjangans');
+    }
 }

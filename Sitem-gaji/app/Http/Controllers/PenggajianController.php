@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penggajian;
+use App\Models\Divisi;
+use App\Models\Employee;
+use App\Models\User;
+use App\Models\Tunjangan;
 use Illuminate\Http\Request;
 
 class PenggajianController extends Controller
@@ -11,25 +15,32 @@ class PenggajianController extends Controller
     {
         $data = [
             "title" => "Data Gaji",
-            "penggajians" => Penggajian::all(),
+            "penggajians" => Penggajian::with('employee', 'tunjangan')->get(),
         ];
 
         return view('contents.penggajians.penggajian', $data);
     }
+
     public function create()
     {
+        $tunjangans = Tunjangan::all();
+        $employees = Employee::all();
+        $users = User::all();
+        $divisions = Divisi::all();
+
         return view('contents.penggajians.create', [
-            "title" => " gaji Create",
+            "title" => "Create Gaji",
+            "employee" => $employees,
+            "tunjangan" => $tunjangans,
         ]);
     }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "Potongan" => 'required|max:255|min:3',
-            "id_employees" => 'required|max:255|min:3',
-            "id_tunjangan" => 'required|max:255|min:3',
-            "id_divisis" => 'required|max:255|min:3',
-            "gaji_pokok" => 'nullable|numeric|min:0'
+            "potongan" => 'nullable|numeric|min:0',
+            "id_employees" => 'required',
+            "id_tunjangans" => 'required',
         ]);
 
 
@@ -37,7 +48,7 @@ class PenggajianController extends Controller
 
         return redirect('/penggajians')->with('success', 'Berhasil menambah data.');
     }
-    
+
     public function edit($id)
     {
         $data = [
@@ -54,9 +65,7 @@ class PenggajianController extends Controller
         $penggajians = penggajian::find($id);
 
         $validatedData = $request->validate([
-            "Potongan" => 'required|max:255|min:3',
             "id_employees" => 'required|max:255|min:3',
-            "id_tunjangan" => 'required|max:255|min:3',
             "id_divisis" => 'required|max:255|min:3',
             "gaji_pokok" => 'nullable|numeric|min:0'
         ]);
@@ -71,6 +80,6 @@ class PenggajianController extends Controller
 
         $penggajians->delete();
 
-        return redirect('/penggajians')->with('success', 'Gaji berhasil dihapus.');
+        return redirect('/penggajians')->with('success', 'Data Gaji berhasil dihapus.');
     }
 }

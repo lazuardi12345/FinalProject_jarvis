@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tunjangan;
+use App\Models\Tunjangan;
 use Illuminate\Http\Request;
 
 class TujanganController extends Controller
@@ -11,7 +11,7 @@ class TujanganController extends Controller
     {
         $data = [
             "title" => "Data Tunjangan",
-            "tunjangans" => tunjangan::all(),
+            "tunjangans" => Tunjangan::all(),
         ];
 
         return view('contents.tunjangans.tunjangan', $data);
@@ -30,7 +30,7 @@ class TujanganController extends Controller
         ]);
 
 
-        tunjangan::create($validatedData);
+        Tunjangan::create($validatedData);
 
         return redirect('/tunjangans')->with('success', 'Berhasil menambah data.');
     }
@@ -39,7 +39,7 @@ class TujanganController extends Controller
     {
         $data = [
             "title" => "Edit Employee",
-            "tunjangans" => tunjangan::find($id),
+            "tunjangans" => Tunjangan::find($id),
 
         ];
 
@@ -48,7 +48,7 @@ class TujanganController extends Controller
 
     public function update(Request $request, string $id)
     {
-        $tunjangans = tunjangan::find($id);
+        $tunjangans = Tunjangan::find($id);
 
         $validatedData = $request->validate([
             "nama_tunjangan" => 'required|max:255|min:3',
@@ -61,7 +61,7 @@ class TujanganController extends Controller
 
     public function destroy($id)
     {
-        $tunjangans = tunjangan::findOrFail($id);
+        $tunjangans = Tunjangan::findOrFail($id);
 
         $tunjangans->delete();
 

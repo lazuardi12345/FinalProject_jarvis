@@ -68,7 +68,7 @@
 
                                     <td>{{ $value->alamat }}</td>
                                     <td>{{ $value->no_hp }}</td>
-                                    <td>Rp {{ number_format($value->gaji_pokok, 2, ',', '.') }}</td>
+                                    <td>Rp{{ number_format($value->gaji_pokok, 2, ',', '.') }}</td>
                                     <td>{{ $value->divisi->nama_divisi }}</td>
                                     <td>
                                         <a href="/employee/{{ $value->id }}/detail"><span
