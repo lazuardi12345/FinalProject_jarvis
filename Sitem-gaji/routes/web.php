@@ -41,6 +41,7 @@ Route::get('/penggajians/create', [PenggajianController::class, 'create']);
 Route::post('/penggajians', [PenggajianController::class, 'store']);
 Route::get('/penggajians/{id}/edit', [PenggajianController::class, 'edit']);
 Route::put('/penggajians/{id}', [PenggajianController::class, 'update']);
+Route::delete('/penggajians/{id}', [PenggajianController::class, 'destroy'])->name('penggajian.destroy');
 
 
 

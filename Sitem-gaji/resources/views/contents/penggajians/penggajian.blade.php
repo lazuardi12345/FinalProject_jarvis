@@ -45,6 +45,7 @@
                                 <th>Tunjangan</th>
                                 <th>Divisi</th>
                                 <th>Gaji Pokok</th>
+                                <th>Total</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -65,6 +66,10 @@
                                     <td>{{ $penggajian->tunjangan->nama_tunjangan }}</td>
                                     <td>{{ $penggajian->employee->divisi->nama_divisi }}</td>
                                     <td>Rp{{ number_format($penggajian->employee->gaji_pokok, 2, ',', '.') }}</td>
+                                    @php
+                                        $total = ($penggajian->employee->gaji_pokok + $penggajian->tunjangan->nominal) - $penggajian->potongan
+                                    @endphp
+                                    <td>Rp{{ number_format($total, 2, ',', '.') }}</td>
                                     <td>
                                         <a href="/employee/{{ $penggajian->id }}/detail"><span
                                                 class="badge bg-primary">Detail</span></a>
@@ -72,7 +77,7 @@
                                                 class="badge bg-warning">Edit</span></a>
 
                                         <!-- Konfirmasi tindakan Hapus -->
-                                        {{-- <form action="{{ route('penggajian.destroy', $penggajian->id) }}" method="POST"
+                                        <form action="{{ route('penggajian.destroy', $penggajian->id) }}" method="POST"
                                             class="d-inline" id="delete-form-{{ $penggajian->id }}">
                                             @csrf
                                             @method('DELETE')
@@ -86,7 +91,7 @@
                                                     document.getElementById('delete-form-' + id).submit();
                                                 }
                                             }
-                                        </script> --}}
+                                        </script>
 
                                     </td>
                                 </tr>
