@@ -56,3 +56,7 @@ Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name(
 Auth::routes();
 
 Route::get('/main', [App\Http\Controllers\HomeController::class, 'index'])->name('main');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
