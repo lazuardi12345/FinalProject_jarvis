@@ -27,25 +27,25 @@
                 @csrf
             <form action="index.html">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Email">
+                    <input type="text" name="email" class="form-control form-control-xl" placeholder="Email">
                     <div class="form-control-icon">
                         <i class="bi bi-envelope"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Username">
+                    <input type="text" name="username" class="form-control form-control-xl" placeholder="Username">
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Password">
+                    <input type="password" name="password" class="form-control form-control-xl" placeholder="Password">
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Confirm Password">
+                    <input type="password" name="passwrod" class="form-control form-control-xl" placeholder="Confirm Password">
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
@@ -53,7 +53,7 @@
                 <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
-                <p class='text-gray-600'>Already have an account? <a href="auth/login" class="font-bold">Log
+                <p class='text-gray-600'>Already have an account? <a href="{{ route('login')}}" class="font-bold">Log
                         in</a>.</p>
             </div>
         </div>
