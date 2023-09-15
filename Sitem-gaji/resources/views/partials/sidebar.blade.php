@@ -80,8 +80,8 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item {{ Request::is('#') ? 'active' : ' ' }}">
-                            <a href="index.html" class='sidebar-link'>
+                        <li class="sidebar-item {{ Request::is('userProfile') ? 'active' : ' ' }}">
+                            <a href="userProfile" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>User Profile</span>
                             </a>

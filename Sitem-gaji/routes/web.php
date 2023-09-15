@@ -4,6 +4,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\PenggajianController;
 use App\Http\Controllers\TujanganController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('contents.dashboard');
 });
+
 
 Route::get('/employee', [EmployeeController::class, 'index']);
 Route::get('/employee/create', [EmployeeController::class, 'create']);
@@ -52,10 +54,8 @@ Route::get('/tunjangans/{id}/edit', [TujanganController::class, 'edit']);
 Route::put('/tunjangans/{id}', [TujanganController::class, 'update']);
 Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name('tunjangan.destroy');
 
+Route::get('/userProfile', [UserProfileController::class, 'index']);
 
-Auth::routes();
-
-Route::get('/main', [App\Http\Controllers\HomeController::class, 'index'])->name('main');
 
 Auth::routes();
 
