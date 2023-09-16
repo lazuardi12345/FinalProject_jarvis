@@ -14,4 +14,13 @@ class UserProfileController extends Controller
 
         return view('contents.userProfile.user', $data);
     }
+
+    public function show()
+    {
+        $user = Auth::user();
+        $data = [
+            "title" => "User Profile",
+        ];
+        return view('contents.userProfile.user', compact('user','data'));
+    }
 }

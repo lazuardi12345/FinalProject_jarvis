@@ -54,7 +54,9 @@ Route::get('/tunjangans/{id}/edit', [TujanganController::class, 'edit']);
 Route::put('/tunjangans/{id}', [TujanganController::class, 'update']);
 Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name('tunjangan.destroy');
 
-Route::get('/userProfile', [UserProfileController::class, 'index']);
+
+    Route::get('/userProfile', 'UserProfileController@show');
+
 
 
 Auth::routes();
