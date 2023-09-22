@@ -59,7 +59,7 @@ Route::name('tunjangans.')->group(function () {
     Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name('tunjangan.destroy');
 });
 
-Route::middleware(['checkRole', 'checkUserRole:pic'])->group(function () {
+Route::middleware(['checkRole', 'checkRole:pic'])->group(function () {
     Route::name('employees.')->group(function () {
         Route::get('/employee', [EmployeeController::class, 'index']);
         Route::get('/employee/create', [EmployeeController::class, 'create']);
@@ -105,7 +105,7 @@ Route::middleware(['checkRole', 'checkUserRole:pic'])->group(function () {
 
 });
 
-Route::middleware(['checkRole', 'checkUserRole:admin'])->group(function () {
+Route::middleware(['checkRole', 'checkRole:admin'])->group(function () {
     Route::name('employees.')->group(function () {
         Route::get('/employee', [EmployeeController::class, 'index']);
         Route::get('/employee/create', [EmployeeController::class, 'create']);
@@ -151,7 +151,7 @@ Route::middleware(['checkRole', 'checkUserRole:admin'])->group(function () {
 
 });
 
-Route::middleware(['checkRole', 'checkUserRole:employee'])->group(function () {
+Route::middleware(['checkRole', 'checkRole:employee'])->group(function () {
 
     Route::get('/', function () {
         return view('contents.dashboard');
