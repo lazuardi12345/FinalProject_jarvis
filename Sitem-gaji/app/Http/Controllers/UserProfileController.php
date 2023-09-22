@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
@@ -20,7 +21,8 @@ class UserProfileController extends Controller
         $user = Auth::user();
         $data = [
             "title" => "User Profile",
+            "user" => $user
         ];
-        return view('contents.userProfile.user', compact('user','data'));
+        return view('contents.userProfile.user', $data);
     }
 }
