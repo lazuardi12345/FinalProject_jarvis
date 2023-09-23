@@ -59,6 +59,10 @@ Route::name('tunjangans.')->group(function () {
     Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name('tunjangan.destroy');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/userProfile', [UserProfileController::class, 'show']);
+});
+
 Route::middleware(['checkRole', 'checkRole:pic'])->group(function () {
     Route::name('employees.')->group(function () {
         Route::get('/employee', [EmployeeController::class, 'index']);
@@ -101,7 +105,9 @@ Route::middleware(['checkRole', 'checkRole:pic'])->group(function () {
         return view('contents.dashboard');
     });
 
-    Route::get('/userProfile', 'UserProfileController@show');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/userProfile', [UserProfileController::class, 'show']);
+    });
 
 });
 
@@ -147,7 +153,9 @@ Route::middleware(['checkRole', 'checkRole:admin'])->group(function () {
         return view('contents.dashboard');
     });
 
-    Route::get('/userProfile', 'UserProfileController@show');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/userProfile', [UserProfileController::class, 'show']);
+    });
 
 });
 
@@ -157,7 +165,9 @@ Route::middleware(['checkRole', 'checkRole:employee'])->group(function () {
         return view('contents.dashboard');
     });
 
-    Route::get('/userProfile', 'UserProfileController@show');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/userProfile', [UserProfileController::class, 'show']);
+    });
 
 });
 
