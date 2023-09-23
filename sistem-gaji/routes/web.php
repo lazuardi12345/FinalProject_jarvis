@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenggajianController;
 use App\Http\Controllers\TujanganController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -62,5 +63,11 @@ Route::get('/tunjangans/{id}/edit', [TujanganController::class, 'edit']);
 Route::put('/tunjangans/{id}', [TujanganController::class, 'update']);
 Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name('tunjangan.destroy');
 
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/userProfile', [UserProfileController::class, 'show']);
+});
+
+Auth::routes();
 // });
 
