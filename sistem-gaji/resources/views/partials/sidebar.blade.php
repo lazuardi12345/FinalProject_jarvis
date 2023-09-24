@@ -45,41 +45,95 @@
                     <ul class="menu">
                         {{-- <li class="sidebar-title">Menu</li> --}}
 
+                        @if(Auth::user()->role == 'admin')
+
+                            <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }} ">
+                                <a href="/" class='sidebar-link'>
+                                    <i class="bi bi-grid{{ Request::is('/') ? '-fill' : ' ' }}"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                
+                            <li class="sidebar-item {{ Request::is('employee') ? 'active' : ' ' }} ">
+                                <a href="/employee" class='sidebar-link'>
+                                    <i class="bi bi-people{{ Request::is('employee') ? '-fill' : ' ' }}"></i>
+                                    <span>Employee</span>
+                                </a>
+                            </li>
+                
+                            <li class="sidebar-item {{ Request::is('divisions') ? 'active' : ' ' }}">
+                                <a href="/divisions" class='sidebar-link'>
+                                    <i class="bi bi-building"></i>
+                                    <span>Divisi</span>
+                                </a>
+                            </li>
+                
+                            <li a href="https://github.com/zuramai/mazer#donation"
+                                class="sidebar-item {{ Request::is('penggajians') ? 'active' : ' ' }}">
+                                <a href="/penggajians" class='sidebar-link'>
+                                    <i class="bi bi-cash-stack"></i>
+                                    <span>Penggajian</span>
+                                </a>
+                            </li>
+                
+                            <li class="sidebar-item {{ Request::is('tunjangans') ? 'active' : ' ' }}">
+                                <a href="tunjangans" class='sidebar-link'>
+                                    <i class="bi bi-wallet{{ Request::is('tunjangans') ? '-fill' : ' ' }}"></i>
+                                    <span>Tunjangan</span>
+                                </a>
+                            </li>
+                        @endif
+
+                        @if(Auth::user()->role == 'pic')
+
+                            <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }} ">
+                                <a href="/" class='sidebar-link'>
+                                    <i class="bi bi-grid{{ Request::is('/') ? '-fill' : ' ' }}"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                
+                            <li class="sidebar-item {{ Request::is('employee') ? 'active' : ' ' }} ">
+                                <a href="/employee" class='sidebar-link'>
+                                    <i class="bi bi-people{{ Request::is('employee') ? '-fill' : ' ' }}"></i>
+                                    <span>Employee</span>
+                                </a>
+                            </li>
+                
+                            <li class="sidebar-item {{ Request::is('divisions') ? 'active' : ' ' }}">
+                                <a href="/divisions" class='sidebar-link'>
+                                    <i class="bi bi-building"></i>
+                                    <span>Divisi</span>
+                                </a>
+                            </li>
+                
+                            <li a href="https://github.com/zuramai/mazer#donation"
+                                class="sidebar-item {{ Request::is('penggajians') ? 'active' : ' ' }}">
+                                <a href="/penggajians" class='sidebar-link'>
+                                    <i class="bi bi-cash-stack"></i>
+                                    <span>Penggajian</span>
+                                </a>
+                            </li>
+                
+                            <li class="sidebar-item {{ Request::is('tunjangans') ? 'active' : ' ' }}">
+                                <a href="tunjangans" class='sidebar-link'>
+                                    <i class="bi bi-wallet{{ Request::is('tunjangans') ? '-fill' : ' ' }}"></i>
+                                    <span>Tunjangan</span>
+                                </a>
+                            </li>
+                        @endif
+
+                        @if(Auth::user()->role == 'employee')
+
                         <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }} ">
                             <a href="/" class='sidebar-link'>
                                 <i class="bi bi-grid{{ Request::is('/') ? '-fill' : ' ' }}"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
-            
-                        <li class="sidebar-item {{ Request::is('employee') ? 'active' : ' ' }} ">
-                            <a href="/employee" class='sidebar-link'>
-                                <i class="bi bi-people{{ Request::is('employee') ? '-fill' : ' ' }}"></i>
-                                <span>Employee</span>
-                            </a>
-                        </li>
-            
-                        <li class="sidebar-item {{ Request::is('divisions') ? 'active' : ' ' }}">
-                            <a href="/divisions" class='sidebar-link'>
-                                <i class="bi bi-building"></i>
-                                <span>Divisi</span>
-                            </a>
-                        </li>
-            
-                        <li a href="https://github.com/zuramai/mazer#donation"
-                            class="sidebar-item {{ Request::is('penggajians') ? 'active' : ' ' }}">
-                            <a href="/penggajians" class='sidebar-link'>
-                                <i class="bi bi-cash-stack"></i>
-                                <span>Penggajian</span>
-                            </a>
-                        </li>
-            
-                        <li class="sidebar-item {{ Request::is('tunjangans') ? 'active' : ' ' }}">
-                            <a href="tunjangans" class='sidebar-link'>
-                                <i class="bi bi-wallet{{ Request::is('tunjangans') ? '-fill' : ' ' }}"></i>
-                                <span>Tunjangan</span>
-                            </a>
-                        </li>
+
+                        @endif
+
 
                         {{-- <li class="sidebar-item {{ Request::is('userProfile') ? 'active' : ' ' }}">
                             <a href="userProfile" class='sidebar-link'>

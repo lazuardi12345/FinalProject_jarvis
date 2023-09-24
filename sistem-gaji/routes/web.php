@@ -84,13 +84,13 @@ Route::name('login.')->group(function () {
 // EMPLOYEE
 Route::middleware(['auth', 'checkRole:employee'])->group(function () {
     Route::get('/userProfile', [UserProfileController::class, 'show']);
-    Route::get('/', [HomeController::class, 'index'])->name('/');
 });
+
+// ALL
+Route::get('/', [HomeController::class, 'index'])->name('/')->middleware(['auth', 'checkRole:admin,pic,employee']);
 
 // ADMIN
 Route::middleware(['auth', 'checkRole:admin,pic'])->group(function () {
-
-    Route::get('/', [HomeController::class, 'index'])->name('/');
 
     // Route::name('employees.')->group(function () {
         Route::get('/employee', [EmployeeController::class, 'index']);
