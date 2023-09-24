@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::name('login')->group(function () {
+Route::name('login.')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -87,7 +87,7 @@ Route::middleware(['checkRole:employee'])->group(function () {
 Route::middleware(['checkRole:admin|pic'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('/');
 
-    Route::name('employees')->group(function () {
+    Route::name('employees.')->group(function () {
         Route::get('/employee', [EmployeeController::class, 'index']);
         Route::get('/employee/create', [EmployeeController::class, 'create']);
         Route::post('/employee', [EmployeeController::class, 'store']);
@@ -97,7 +97,7 @@ Route::middleware(['checkRole:admin|pic'])->group(function () {
         Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
     });
     
-    Route::name('divisions')->group(function () {
+    Route::name('divisions.')->group(function () {
         Route::get('/divisions', [DivisiController::class, 'index']);
         Route::get('/divisions/create', [DivisiController::class, 'create']);
         Route::post('/divisions', [DivisiController::class, 'store']);
@@ -106,7 +106,7 @@ Route::middleware(['checkRole:admin|pic'])->group(function () {
         Route::delete('/divisions/{id}', [DivisiController::class, 'destroy'])->name('divisi.destroy');
     });
     
-    Route::name('penggajians')->group(function () {
+    Route::name('penggajians.')->group(function () {
         Route::get('/penggajians', [PenggajianController::class, 'index']);
         Route::get('/penggajians/create', [PenggajianController::class, 'create']);
         Route::post('/penggajians', [PenggajianController::class, 'store']);
@@ -116,7 +116,7 @@ Route::middleware(['checkRole:admin|pic'])->group(function () {
     });
     
     
-    Route::name('tunjangans')->group(function () {
+    Route::name('tunjangans.')->group(function () {
         Route::get('/tunjangans', [TujanganController::class, 'index']);
         Route::get('/tunjangans/create', [TujanganController::class, 'create']);
         Route::post('/tunjangans', [TujanganController::class, 'store']);
