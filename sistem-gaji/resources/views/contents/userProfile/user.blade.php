@@ -21,11 +21,13 @@
     <div class="row">
         <div class="card col-md-5 col-sm-12">
             <div class="card-content">
-                <img src="{{ asset('/storage/images/employees/' . $user->employee->photo) }}"
-                    alt="Foto {{ $user->name }}">
+                @if($user->employee->photo)
+                    <img src="{{ asset('/storage/images/employees/' . $user->employee->photo) }}" alt="Foto {{ $user->name }}">
+                @else
+                    <img src="{{ asset('/path/to/placeholder/image.jpg') }}" alt="Foto tidak tersedia">
+                @endif
             </div>
         </div>
-
         <div class="card col-md-6 ms-md-5 col-sm-12">
             <div class="card-content">
                 <div class="card-body">

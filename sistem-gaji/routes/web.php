@@ -68,6 +68,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/userProfile', [UserProfileController::class, 'show']);
 });
 
-Auth::routes();
+
 // });
 
