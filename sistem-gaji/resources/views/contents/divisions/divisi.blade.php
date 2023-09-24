@@ -36,7 +36,7 @@
             @endif
         </div>
 
-        <section class="section">
+        <section class="section mt-2">
             <div class="card">
                 <div class="card-header">Simple Datatable</div>
                 <div class="card-body">

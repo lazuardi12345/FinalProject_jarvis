@@ -28,8 +28,8 @@
 
                         <div class="form-group">
                             <label for="nama_divisi">Nama Divisi</label>
-                            <input type="text" class="form-control @error('nama_divisi') is-invalid @enderror" name="nama_divisi" id="nama_divisi"
-                                placeholder="Masukan nama divisi">
+                            <input type="text" class="form-control @error('nama_divisi') is-invalid @enderror"
+                                name="nama_divisi" id="nama_divisi" placeholder="Masukan nama divisi">
                         </div>
                         @error('nama_divisi')
                             <div class="invalid-feedback text-danger">
