@@ -87,7 +87,7 @@ Route::middleware(['checkRole:employee'])->group(function () {
 Route::middleware(['checkRole:admin|pic'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('/');
 
-    Route::name('employees.')->group(function () {
+    // Route::name('employees.')->group(function () {
         Route::get('/employee', [EmployeeController::class, 'index']);
         Route::get('/employee/create', [EmployeeController::class, 'create']);
         Route::post('/employee', [EmployeeController::class, 'store']);
@@ -95,35 +95,35 @@ Route::middleware(['checkRole:admin|pic'])->group(function () {
         Route::get('/employee/{id}/edit', [EmployeeController::class, 'edit']);
         Route::put('/employee/{id}', [EmployeeController::class, 'update']);
         Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
-    });
+    // });
     
-    Route::name('divisions.')->group(function () {
+    // Route::name('divisions.')->group(function () {
         Route::get('/divisions', [DivisiController::class, 'index']);
         Route::get('/divisions/create', [DivisiController::class, 'create']);
         Route::post('/divisions', [DivisiController::class, 'store']);
         Route::get('/divisions/{id}/edit', [DivisiController::class, 'edit']);
         Route::put('/divisions/{id}', [DivisiController::class, 'update']);
         Route::delete('/divisions/{id}', [DivisiController::class, 'destroy'])->name('divisi.destroy');
-    });
+    // });
     
-    Route::name('penggajians.')->group(function () {
+    // Route::name('penggajians.')->group(function () {
         Route::get('/penggajians', [PenggajianController::class, 'index']);
         Route::get('/penggajians/create', [PenggajianController::class, 'create']);
         Route::post('/penggajians', [PenggajianController::class, 'store']);
         Route::get('/penggajians/{id}/edit', [PenggajianController::class, 'edit']);
         Route::put('/penggajians/{id}', [PenggajianController::class, 'update']);
         Route::delete('/penggajians/{id}', [PenggajianController::class, 'destroy'])->name('penggajian.destroy');
-    });
+    // });
     
     
-    Route::name('tunjangans.')->group(function () {
+    // Route::name('tunjangans.')->group(function () {
         Route::get('/tunjangans', [TujanganController::class, 'index']);
         Route::get('/tunjangans/create', [TujanganController::class, 'create']);
         Route::post('/tunjangans', [TujanganController::class, 'store']);
         Route::get('/tunjangans/{id}/edit', [TujanganController::class, 'edit']);
         Route::put('/tunjangans/{id}', [TujanganController::class, 'update']);
         Route::delete('/tunjangans/{id}', [TujanganController::class, 'destroy'])->name('tunjangan.destroy');
-    });
+    // });
 });
 
 // Route::middleware(['checkRole:pic'])->group(function () {
