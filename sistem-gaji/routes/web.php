@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenggajianController;
 use App\Http\Controllers\TujanganController;
 use App\Http\Controllers\UserProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -129,6 +130,8 @@ Route::middleware(['checkRole:admin|pic'])->group(function () {
 // Route::middleware(['checkRole:pic'])->group(function () {
 
 // });
+
+Auth::routes();
 
 
 // });
