@@ -14,15 +14,16 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-
-        $roles = ['admin', 'employee', 'pic'];
-
-        if (auth()->check() && in_array(Auth::user()->role, $roles)) {
-            return $next($request);
+        if ($request->user()) {
+            // Periksa peran pengguna saat ini dengan peran yang diizinkan
+            if (in_array($request->user()->role, $roles)) {
+                return $next($request);
+            }
         }
-    
-        abort(403); // Alihkan pengguna ke halaman error 403 jika tidak memiliki izin.
+
+        // Jika peran tidak sesuai, alihkan pengguna ke halaman lain
+        return redirect('/');
     }
 }
