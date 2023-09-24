@@ -15,6 +15,9 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        $roles = ['admin', 'employee', 'pic'];
+
         if (auth()->check() && in_array(auth()->user()->role, $roles)) {
             return $next($request);
         }
